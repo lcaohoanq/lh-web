@@ -1,10 +1,9 @@
 import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 const ProductDetail: React.FC = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const { addToCart } = useCart();
 
   // Mock data - replace with API call

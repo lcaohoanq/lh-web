@@ -1,21 +1,15 @@
+import { Box, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {
-  Container,
-  CssBaseline,
-  ThemeProvider,
-  createTheme,
-  Box,
-} from "@mui/material";
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import ProductDetail from "./pages/ProductDetail";
-import CartPage from "./pages/CartPage";
-import AuthPage from "./pages/AuthPage";
+import Navbar from "./components/Navbar";
 import ProductForm from "./components/ProductForm";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
+import AuthPage from "./pages/AuthPage";
+import CartPage from "./pages/CartPage";
+import HomePage from "./pages/HomePage";
+import ProductDetail from "./pages/ProductDetail";
 
 const theme = createTheme();
 
