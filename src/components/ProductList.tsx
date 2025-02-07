@@ -8,16 +8,31 @@ import {
   Box,
 } from "@mui/material";
 import { Product } from "../types";
+import { useNavigate } from "react-router-dom";
 
 interface ProductListProps {
   products: Product[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+  };
+
   return (
     <Grid container spacing={3}>
       {products.map((product) => (
-        <Grid item key={product.id} xs={12} sm={6} md={4}>
+        <Grid
+          item
+          key={product.id}
+          xs={12}
+          sm={6}
+          md={4}
+          onClick={() => handleProductClick(product.id)}
+          style={{ cursor: "pointer" }}
+        >
           <Card>
             <CardMedia
               component="img"

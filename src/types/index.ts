@@ -8,10 +8,6 @@ export interface Product {
   createdAt: Date;
 }
 
-export interface CartItem extends Product {
-  quantity: number;
-}
-
 export interface AuthContextType {
   isAuthenticated: boolean;
   login: (username: string, password: string) => Promise<void>;

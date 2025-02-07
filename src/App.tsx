@@ -5,9 +5,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ProductForm from "./components/ProductForm";
 import { AuthProvider } from "./context/AuthContext";
-import { CartProvider } from "./context/CartContext";
 import AuthPage from "./pages/AuthPage";
-import CartPage from "./pages/CartPage";
 import HomePage from "./pages/HomePage";
 import ProductDetail from "./pages/ProductDetail";
 
@@ -18,7 +16,6 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AuthProvider>
-        <CartProvider>
           <BrowserRouter>
             <Box
               sx={{
@@ -32,7 +29,6 @@ const App: React.FC = () => {
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/product/:id" element={<ProductDetail />} />
-                  <Route path="/cart" element={<CartPage />} />
                   <Route path="/auth" element={<AuthPage />} />
                   <Route path="/admin" element={<ProductForm />} />
                 </Routes>
@@ -40,7 +36,6 @@ const App: React.FC = () => {
               <Footer />
             </Box>
           </BrowserRouter>
-        </CartProvider>
       </AuthProvider>
     </ThemeProvider>
   );

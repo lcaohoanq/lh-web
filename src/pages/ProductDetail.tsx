@@ -1,20 +1,31 @@
 import { Box, Button, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
-import { useCart } from "../context/CartContext";
+import { useNavigate, useParams } from "react-router-dom";
+import { products } from "../data/product.data";
 
 const ProductDetail: React.FC = () => {
-  // const { id } = useParams();
-  const { addToCart } = useCart();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  // Mock data - replace with API call
-  const product = {
-    id: "1",
-    name: "Sample Product",
-    description: "This is a sample product with detailed description.",
-    price: 99.99,
-    images: ["/api/placeholder/400/300"],
-    category: "Electronics",
-    createdAt: new Date(),
+  const product = products.find((p) => p.id === id);
+
+  if (!product) {
+    return (
+      <Container sx={{ py: 4 }}>
+        <Typography variant="h4">Product not found</Typography>
+        <Button
+          variant="contained"
+          onClick={() => navigate("/")}
+          sx={{ mt: 2 }}
+        >
+          Back to Home
+        </Button>
+      </Container>
+    );
+  }
+
+  const contactNow = () => {
+    console.log(`I want to buy ${product.name}`);
   };
 
   return (
@@ -46,9 +57,13 @@ const ProductDetail: React.FC = () => {
                 variant="contained"
                 color="primary"
                 size="large"
-                onClick={() => addToCart(product)}
+                onClick={contactNow}
+                sx={{ mr: 2 }}
               >
-                Add to Cart
+                Contact
+              </Button>
+              <Button variant="outlined" onClick={() => navigate("/")}>
+                Back to Home
               </Button>
             </Box>
           </Grid>
