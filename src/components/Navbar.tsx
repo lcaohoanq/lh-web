@@ -1,15 +1,11 @@
+import { VerifiedUser } from "@mui/icons-material";
+import Settings from "@mui/icons-material/Settings";
 import { AppBar, Badge, Box, Button, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import NavigateButton from "./NavigateButton";
 import CategoryBar from "./CategoryBar";
-import {
-  AdminPanelSettings,
-  ShoppingCart,
-  VerifiedUser,
-} from "@mui/icons-material";
-import Settings from "@mui/icons-material/Settings";
+import NavigateButton from "./NavigateButton";
 
 const Navbar: React.FC = () => {
   const { id } = useParams();
