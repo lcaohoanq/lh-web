@@ -8,6 +8,12 @@ export interface Product {
   createdAt: Date;
 }
 
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+}
+
 export interface AuthContextType {
   isAuthenticated: boolean;
   login: (username: string, password: string) => Promise<void>;

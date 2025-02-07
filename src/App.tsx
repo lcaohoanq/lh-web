@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/AuthContext";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import ProductDetail from "./pages/ProductDetail";
+import SupportForm from "./pages/SupportForm";
 
 const theme = createTheme();
 
@@ -16,26 +17,27 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AuthProvider>
-          <BrowserRouter>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                minHeight: "100vh",
-              }}
-            >
-              <Navbar />
-              <Box sx={{ flex: 1 }}>
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/product/:id" element={<ProductDetail />} />
-                  <Route path="/auth" element={<AuthPage />} />
-                  <Route path="/admin" element={<ProductForm />} />
-                </Routes>
-              </Box>
-              <Footer />
+        <BrowserRouter>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              minHeight: "100vh",
+            }}
+          >
+            <Navbar />
+            <Box sx={{ flex: 1 }}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/admin" element={<ProductForm />} />
+                <Route path="/hotro" element={<SupportForm />} />
+              </Routes>
             </Box>
-          </BrowserRouter>
+            <Footer />
+          </Box>
+        </BrowserRouter>
       </AuthProvider>
     </ThemeProvider>
   );
